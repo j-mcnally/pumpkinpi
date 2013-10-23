@@ -32,10 +32,10 @@ module.exports = {
     });
 
     var gpio3 = gpio.export(3, {
-      direction: "in",
+      direction: "out",
       ready: function() {
         timer = setTimeout(function() {
-          gpio3.setDirection("out");
+          gpio3.setDirection("in");
         }, 2000);
         timer.ref();
       }
