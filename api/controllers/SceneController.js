@@ -40,7 +40,10 @@ module.exports = {
         timer.ref();
       }
     });
-  
+
+    res.json({
+      hello: "world"
+    });
   },
 
   kill: function(req, res) {
@@ -49,6 +52,10 @@ module.exports = {
     });
     var gpio3 = gpio.export(3, {
       direction: "in"
+    });
+
+    res.json({
+      hello: "world"
     });
   },
 
