@@ -62,7 +62,7 @@ module.exports.routes = {
   'get /scene/:id': {
     controller: 'SceneController',
     action: 'show'
-  }
+  },
 
   'get /scene/kill': {
     controller: 'SceneController',
