@@ -64,6 +64,11 @@ module.exports.routes = {
     action: 'show'
   }
 
+  'get /scene/kill': {
+    controller: 'SceneController',
+    action: 'kill'
+  }
+
   /*
 
 
