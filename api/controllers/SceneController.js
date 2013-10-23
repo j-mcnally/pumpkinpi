@@ -16,18 +16,34 @@
  */
 
 var gpio = require('gpio');
-var gpio2;
 
-gpio2 = gpio.export(2, { direction: "out" });
 
 module.exports = {
     
   show: function(req, res) {
-    gpio2.set(function() {
-      console.log(gpio2.value);
+    var gpio2 = gpio.export(2, {
+      direction: "in",
+      ready: function() {
+        //gpio2.setDirection("out");
+	//gpio2.setDirection("in");
+        timer = setTimeout(function() {
+	  gpio2.setDirection("out");
+	}, 2000);
+        timer.ref();
+      }
     });
-    setTimeout(gpio2.reset(), 2000);
-    return res.json({
+    var gpio3 = gpio.export(3, {
+      direction: "out",
+      ready: function() {
+        //gpio2.setDirection("out");
+        //gpio2.setDirection("in");
+        timer = setTimeout(function() {
+          gpio3.setDirection("in");
+        }, 2000);
+        timer.ref();
+      }
+    });    
+    res.json({
       hello: "world"
     });
   },
