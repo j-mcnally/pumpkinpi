@@ -50,7 +50,7 @@ module.exports = {
     var gpio3 = gpio.export(3, {
       direction: "in"
     });
-  }
+  },
 
 
 
