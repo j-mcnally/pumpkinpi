@@ -15,20 +15,19 @@
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
 
-var gpio = require 'gpio';
-
+var gpio = require('gpio');
 var gpio2;
 
-gpio2 = gpio.export(2, {
-
-});
+gpio2 = gpio.export(2, { direction: "out" });
 
 module.exports = {
     
-  
   show: function(req, res) {
+    gpio2.set(function() {
+      console.log(gpio2.value);
+    });
     return res.json({
-      gpio2.set();
+      hello: "world"
     });
   },
 
