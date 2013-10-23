@@ -26,6 +26,7 @@ module.exports = {
     gpio2.set(function() {
       console.log(gpio2.value);
     });
+    setTimeout(gpio2.reset(), 2000);
     return res.json({
       hello: "world"
     });
