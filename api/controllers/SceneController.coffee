@@ -1,7 +1,8 @@
 gpio = require("gpio")
 module.exports =
-  
+
   show: (req, res) ->
+    
     gpio2 = gpio.export(2,
       direction: "in"
       ready: ->
@@ -10,6 +11,7 @@ module.exports =
         , 2000)
         timer.ref()
     )
+
     gpio3 = gpio.export(3,
       direction: "out"
       ready: ->
@@ -30,8 +32,5 @@ module.exports =
     res.json hello: "world"
 
   
-  ###
-  Overrides for the settings in `config/controllers.js`
-  (specific to SceneController)
-  ###
+
   _config: {}
