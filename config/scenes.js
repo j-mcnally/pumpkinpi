@@ -39,11 +39,11 @@ module.exports.scenes = [
         }, {
           "2": {
             state: "toggle",
-            interval: 500
+            interval: 300
           },
           "4": {
             state: "toggle",
-            interval: 500
+            interval: 300
           },
           duration: 10000,
           delay: 3000
