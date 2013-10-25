@@ -13,7 +13,7 @@ module.exports.scenes = [
   }, 
   {
     name: "Fog",
-    action: {
+    actions: {
       relays: [
         {
           "17": {
