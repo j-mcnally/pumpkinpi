@@ -10,7 +10,21 @@ module.exports.scenes = [
         "3": "off"
       }]
     }
-  }, {
+  }, 
+  {
+    name: "Fog",
+    action: {
+      relays: [
+        {
+          "17": {
+            state: "on",
+            duration: 6000
+          }
+        }
+      ]
+    }
+  }
+  {
     name: "Thunder",
     actions: {
       relays: [
