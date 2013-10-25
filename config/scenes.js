@@ -32,8 +32,8 @@ module.exports.scenes = [
             interval: 1000
           },
           "3": "on",
-          duration: 5000,
-          delay: 6000
+          duration: 10000,
+          delay: 2000
         }
       ]
     }
