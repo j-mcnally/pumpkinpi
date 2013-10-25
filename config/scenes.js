@@ -2,6 +2,7 @@
 module.exports.scenes = [
   {
     name: "Default",
+    duration: 500,
     actions: {
       relays: [{
         "2": "on",
@@ -13,6 +14,7 @@ module.exports.scenes = [
   }, 
   {
     name: "Fog",
+    duration: 6000,
     actions: {
       relays: [
         {
@@ -26,6 +28,7 @@ module.exports.scenes = [
   },
   {
     name: "Thunder",
+    duration: 13000,
     actions: {
       relays: [
         {

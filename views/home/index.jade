@@ -20,7 +20,8 @@ block styles
 
 block body
   .container.clearfix.main-container
-    a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="fog", data-duration="6000") Fog
-    a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="thunder", data-duration="13000") Thunder
-    a.btn.btn-block.btn-danger.fire-scene.margin-top(href="#", data-scene-id="default", data-duration="500") Default
-    
+    //- a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="fog", data-duration="6000") Fog
+    //- a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="thunder", data-duration="13000") Thunder
+    //- a.btn.btn-block.btn-danger.fire-scene.margin-top(href="#", data-scene-id="default", data-duration="500") Default
+    for scene in scenes
+      a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id=scene.name, data-duration=scene.duration)= scene.name
