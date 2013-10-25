@@ -12,6 +12,7 @@ block styles
   script(type="text/javascript", src="/linker/js/app.js")
   script(type="text/javascript", src="/js/jquery-1.10.1.min.js")
   script(type="text/javascript", src="/js/jquery-migrate-1.2.1.min.js")
+  script(type="text/javascript", src="/js/scenes.js")
   // SCRIPTS END
   // STYLES
   link(rel="stylesheet", href="/linker/styles/style.css")
@@ -22,29 +23,4 @@ block body
     a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="fog", data-duration="6000") Fog
     a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="thunder", data-duration="13000") Thunder
     a.btn.btn-block.btn-danger.fire-scene.margin-top(href="#", data-scene-id="default", data-duration="500") Default
-
-  script.
-
-    $(document).ready(function() {
-      
-      $('.fire-scene').click(function(e) {
-        $context = $(this);
-        e.preventDefault();
-        
-        var scene = $context.data('scene-id');
-        var duration = parseInt($context.data('duration'));
-        
-        $.ajax({
-          url: '/scene/' + scene,
-          success: function() {
-            $context.addClass('disabled');
-            setTimeout(function() {
-              $context.removeClass('disabled');
-            }, duration);
-          }, 
-          
-          dataType: 'json'
-
-        });
-      });
-    });
+    

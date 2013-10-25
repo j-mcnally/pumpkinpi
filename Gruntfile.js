@@ -16,8 +16,6 @@
 
 module.exports = function (grunt) {
 
-
-
   /**
    * CSS files to inject in order
    * (uses Grunt-style wildcard/glob/splat expressions)
@@ -59,6 +57,7 @@ module.exports = function (grunt) {
     // *->    put other dependencies here   <-*
     'js/jquery-1.10.1.min.js',
     'js/jquery-migrate-1.2.1.min.js',
+    'js/scenes.js',
 
 
     // All of the rest of your app scripts imported here
