@@ -8,9 +8,9 @@ $(document).ready(function() {
     $.ajax({
       url: "/scene/" + scene,
       success: function() {
-        $context.addClass('disabled');
+        $('.fire-scene').addClass('disabled');
         setTimeout(function() {
-          $context.removeClass('disabled');
+          $('.fire-scene').removeClass('disabled');
         }, duration);
       },
       dataType: 'json'
