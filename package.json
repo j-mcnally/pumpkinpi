@@ -11,7 +11,8 @@
         "optimist": "0.3.4",
         "gpio": "0.2.5",
         "jade": "0.35.0",
-        "coffee-script": "1.6.3"
+        "coffee-script": "1.6.3",
+        "underscore": "1.5.2"
     },
     "scripts": {
         "start": "node app.js",
