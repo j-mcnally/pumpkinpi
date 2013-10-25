@@ -12,6 +12,7 @@
         "gpio": "0.2.5",
         "jade": "0.35.0",
         "coffee-script": "1.6.3",
+        "underscore": "1.5.2",
         "jquery": "1.8.3"
     },
     "scripts": {

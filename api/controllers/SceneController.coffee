@@ -1,36 +1,17 @@
 gpio = require("gpio")
 module.exports =
-
   show: (req, res) ->
-    
-    gpio2 = gpio.export(2,
-      direction: "in"
-      ready: ->
-        timer = setTimeout(->
-          gpio2.setDirection "out"
-        , 2000)
-        timer.ref()
-    )
+    SceneController = require("../../libs/scene_parser")
+    scene_controller = new SceneController(sails.config.scenes)
+    scene_controller.run(req.params.id)
 
-    gpio3 = gpio.export(3,
-      direction: "out"
-      ready: ->
-        timer = setTimeout(->
-          gpio3.setDirection "in"
-        , 2000)
-        timer.ref()
-    )
-    res.json hello: "world"
+    res.json hello: "success"
 
   kill: (req, res) ->
-    gpio2 = gpio.export(2,
-      direction: "in"
-    )
-    gpio3 = gpio.export(3,
-      direction: "in"
-    )
-    res.json hello: "world"
+    SceneController = require("../../libs/scene_parser")
+    scene_controller = new SceneController(sails.config.scenes)
+    scene_controller.run('Default')
 
-  
+    res.json status: "success"
 
   _config: {}
