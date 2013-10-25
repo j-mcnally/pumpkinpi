@@ -22,6 +22,7 @@ class RelayHandler
     console.log "Switching relay ##{relay} OFF"
     @getRelay(2, (pin) ->
       pin.setDirection("in")
+      pin.set(1)
     )
 
 class Module
