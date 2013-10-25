@@ -17,7 +17,7 @@ module.exports.scenes = [
         {
           "2": "off",
           "4": "off",
-          "3": "off",
+          "3": "on",
           "17": {
             state: "on",
             duration: 6000
@@ -31,7 +31,6 @@ module.exports.scenes = [
             state: "toggle",
             interval: 500
           },
-          "3": "on",
           duration: 10000,
           delay: 3000
         }
