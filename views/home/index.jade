@@ -19,47 +19,32 @@ block styles
 
 block body
   .container.clearfix.main-container
-    a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="1") Scene One
-    a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="2") Scene Two
-    a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="3") Scene Three
-    a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="4") Scene Four
-    a.btn.btn-block.btn-danger.fire-kill.margin-top(href="#", data-kill-id="kill") Kill Scenes
+    a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="fog", data-duration="6000") Fog
+    a.btn.btn-block.btn-warning.fire-scene(href="#", data-scene-id="thunder", data-duration="13000") Thunder
+    a.btn.btn-block.btn-danger.fire-scene.margin-top(href="#", data-scene-id="default", data-duration="500") Default
 
   script.
-    $(document).ready(function() {
-      $('.fire-scene').click(function(e) {
-        context = this;
-        
-        e.preventDefault();
-        scene_id = $(this).data('scene-id');
 
+    $(document).ready(function() {
+      
+      $('.fire-scene').click(function(e) {
+        $context = $(this);
+        e.preventDefault();
+        
+        var scene = $context.data('scene-id');
+        var duration = parseInt($context.data('duration'));
+        
         $.ajax({
-          url: '/scene/' + scene_id,
-          
+          url: '/scene/' + scene,
           success: function() {
-            $(context).css('color', 'red');
-            var colorTimer = setTimeout(function() {
-              $(context).css('color', 'white');
-            }, 1000);
-          },
+            $context.addClass('disabled');
+            setTimeout(function() {
+              $context.removeClass('disabled');
+            }, duration);
+          }, 
           
           dataType: 'json'
-        });
-      });
-      
-      $('.fire-kill').click(function(e) {
-        context = this;
 
-        e.preventDefault();
-
-        $.ajax({
-          url: '/kill',
-          success: function() {
-            $(context).css('color', 'black');
-            var colorTimer = setTimeout(function() {
-              $(context).css('color', 'white');
-            }, 1000);
-          }
         });
       });
     });

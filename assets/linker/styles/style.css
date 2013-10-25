@@ -5,10 +5,13 @@ body {
 
 .btn.btn-warning,
 .btn.btn-danger {
+  color: black;
   height: 60px;
   font-size: 24px;
+  font-weight: bold;
   line-height: 40px;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .btn.btn-warning {
@@ -17,4 +20,8 @@ body {
 
 .btn.btn-warning:hover {
   background-color: #f0ad4e;
-};
+}
+
+.btn.margin-top {
+  margin-top: 50px;
+}
