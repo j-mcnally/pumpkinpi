@@ -23,7 +23,7 @@ module.exports.scenes = [
         }
       ]
     }
-  }
+  },
   {
     name: "Thunder",
     actions: {

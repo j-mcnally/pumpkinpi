@@ -9,7 +9,6 @@ class RelayHandler
     @_relays[pin] = @gpio.export(pin,
       direction: "in",
       ready: ->
-        console.log(@)
         callback(@)
     )
 
@@ -17,7 +16,6 @@ class RelayHandler
     console.log "Switching relay ##{relay} ON"
     @getRelay(relay, (pin) ->
       pin.setDirection("out")
-      pin.set(1)
     )
 
   switchOff: (relay) ->
@@ -29,11 +27,12 @@ class RelayHandler
 
 class Module
   scenes: []
+  _manager: null
   constructor: (scenes) ->
     @scenes = scenes
-    
+    @manager = @_manager || new RelayHandler()
   run: (scene) ->
-    manager = new RelayHandler()
+    manager = @manager
     scene = scene.toLowerCase()
     scene_schedule = @
     scene = _.find(@scenes, (val) ->
@@ -47,6 +46,7 @@ class Module
     if relays?
       phase_id = 0
       _.each relays, (phase) ->
+        phase = require('util')._extend({}, phase); #If we dont dupe the object the duration is deleted, forever....
         duration = phase.duration
         delay = phase.delay 
         delete phase.duration
