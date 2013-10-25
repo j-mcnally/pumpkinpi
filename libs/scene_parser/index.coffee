@@ -15,14 +15,14 @@ class RelayHandler
 
   switchOn: (relay) ->
     console.log "Switching relay ##{relay} ON"
-    @getRelay(2, (pin) ->
+    @getRelay(relay, (pin) ->
       pin.setDirection("out")
       pin.set(1)
     )
 
   switchOff: (relay) ->
     console.log "Switching relay ##{relay} OFF"
-    @getRelay(2, (pin) ->
+    @getRelay(relay, (pin) ->
       pin.setDirection("in")
 
     )
@@ -69,9 +69,9 @@ class Module
                     (->
                       curPhase = dPhase
                       waitTimer = setTimeout(->
-                        manager.switchOn(relay)
+                        manager.switchOn(pin)
                         mytimer = setTimeout(->
-                          manager.switchOff(relay)
+                          manager.switchOff(pin)
                         , control.duration)
                         mytimer.unref()
                         timers[curPhase].push(mytimer)
@@ -86,10 +86,10 @@ class Module
                     relayIsOn = false
                     flipper = setInterval(->
                       if relayIsOn
-                        manager.switchOff(relay)
+                        manager.switchOff(pin)
                         relayIsOn = false
                       else
-                        manager.switchOn(relay)
+                        manager.switchOn(pin)
                         relayIsOn = true
                     , control.interval)
                     flipper.unref()
@@ -99,9 +99,9 @@ class Module
                   manager.switchOff(relay)
               else
                 if (control == "off")
-                  manager.switchOff(relay)
+                  manager.switchOff(pin)
                 else
-                  manager.switchOn(relay)
+                  manager.switchOn(pin)
             , phaseDelay);
           )();
         if duration? || delay?
