@@ -51,6 +51,8 @@ module.exports.scenes = [
           duration: 10000,
           delay: 3000
         }
+      ],
+      sounds: [
       ]
     }
   }
