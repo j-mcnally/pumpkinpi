@@ -16,13 +16,14 @@ class RelayHandler
     console.log "Switching relay ##{relay} ON"
     @getRelay(2, (pin) ->
       pin.setDirection("out")
+      pin.set(1)
     )
 
   switchOff: (relay) ->
     console.log "Switching relay ##{relay} OFF"
     @getRelay(2, (pin) ->
       pin.setDirection("in")
-      pin.set(1)
+
     )
 
 class Module
