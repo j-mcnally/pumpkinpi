@@ -9,6 +9,7 @@ class RelayHandler
     @_relays[pin] = @gpio.export(pin,
       direction: "in",
       ready: ->
+        console.log(@)
         callback(@)
     )
 
