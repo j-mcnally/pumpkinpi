@@ -20,16 +20,16 @@ module.exports.scenes = [
           "3": "off",
           "17": {
             state: "on",
-            duration: 8000
+            duration: 5000
           }
         }, {
           "2": {
             state: "toggle",
-            interval: 1000
+            interval: 500
           },
           "4": {
             state: "toggle",
-            interval: 1000
+            interval: 500
           },
           "3": "on",
           duration: 10000,
