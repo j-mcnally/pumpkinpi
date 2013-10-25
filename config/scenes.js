@@ -20,7 +20,7 @@ module.exports.scenes = [
           "3": "off",
           "17": {
             state: "on",
-            duration: 5000
+            duration: 6000
           }
         }, {
           "2": {
@@ -33,7 +33,7 @@ module.exports.scenes = [
           },
           "3": "on",
           duration: 10000,
-          delay: 2000
+          delay: 3000
         }
       ]
     }
