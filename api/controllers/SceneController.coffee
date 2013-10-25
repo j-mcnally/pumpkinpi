@@ -1,17 +1,17 @@
 gpio = require("gpio")
-sceneParser = require("../../libs/scene_parser")
+SceneController = require("../../libs/scene_parser")
 
 module.exports =
   show: (req, res) ->
-    scenes = new sceneParser(sails.config.scenes)
-    scenes.run(req.params.id)
-    res.json status: "success"
-  kill: (req, res) ->
-    scenes.run("default")
+    scene_controller = new SceneController(sails.config.scenes)
+    scene_controller.run(req.params.id)
 
-  
-  ###
-  Overrides for the settings in `config/controllers.js`
-  (specific to SceneController)
-  ###
+    res.json hello: "success"
+
+  kill: (req, res) ->
+    scene_controller = new SceneController(sails.config.scenes)
+    scene_controller.run('Default')
+
+    res.json status: "success"
+
   _config: {}
