@@ -28,8 +28,14 @@ module.exports.scenes = [
   },
   {
     name: "thunder",
-    duration: 13000,
+    duration: 17000,
     actions: {
+      sounds: [
+        {"50579^thunder.mp3": 1000},
+        {"21805^EvilNoize1.mp3": 1},
+        {"83291^evilaff.mp3": 8500},
+        {"50579^thunder.mp3": 9000}
+      ],
       relays: [
         {
           "2": "off",
@@ -48,11 +54,9 @@ module.exports.scenes = [
             state: "toggle",
             interval: 300
           },
-          duration: 10000,
+          duration: 14000,
           delay: 3000
         }
-      ],
-      sounds: [
       ]
     }
   }

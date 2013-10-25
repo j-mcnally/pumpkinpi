@@ -31,7 +31,32 @@ class Module
   constructor: (scenes) ->
     @scenes = scenes
     @manager = @_manager || new RelayHandler()
+
+
+  run_audio: (scene) ->
+    util=require('util')
+    exec=require('child_process').exec;
+    sounds = scene.actions.sounds
+    _.each(sounds, (sound) ->
+      console.log(sound)
+      (->
+        console.log(process.cwd())
+        soundfile = _.keys(sound)[0]
+        delay = sound[soundfile]      
+        timer = setTimeout(->
+          exec "mpg123 #{process.cwd()}/assets/sfx/#{soundfile}", (error, stdout, stderr) ->
+              console.log('stdout: ' + stdout)
+              console.log('stderr: ' + stderr)
+              unless error?
+                console.log('exec error: ' + error)
+        , delay)
+        timer.unref()
+      )()
+    )
+
+
   run: (scene) ->
+
     manager = @manager
     scene = scene.toLowerCase()
     scene_schedule = @
@@ -39,7 +64,8 @@ class Module
       val.name.toLowerCase() == scene
     );
     return unless scene?
-    console.log("Running scene #{scene.name}")
+    @run_audio(scene)
+
     # Setup Relays
     timers = {}
     relays = scene.actions.relays
