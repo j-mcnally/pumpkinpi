@@ -15,3 +15,6 @@ The main custom development other than the sails routing and basic controller ac
 [Scene Parser](https://github.com/j-mcnally/pumpkinpi/blob/master/libs/scene_parser/index.coffee)
 
 One of the major hurdles was timers being killed when the request would finish so we make heavy usage of Timer.unref() to leak the timers so that they are not destroyed at the end of the request. These leaks may impact performace and as this is a WIP we hope to resolve them, or find a way to shell out to run scenese where execution wouldnt be terminated by the request ending.
+
+
+Co-Authored by: https://github.com/lrdiv
