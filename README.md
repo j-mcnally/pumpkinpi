@@ -4,6 +4,9 @@ PumpkinPi is a sails application designed to run on the RaspberryPi and take adv
 
 It makes heavy usage of the GPIO package for gaining access to physical hardware and toggling pin voltages high and low.
 
+On the hardware level we use the GPIO pins to close electronic relays. Basically by emmiting a Voltage from GPIO pins we can flip the equivelent of a light switch. We've even built custom cables to control more complicated electronic devices like fog machines.
+
+
 The goal of pumpkin pi was originally to run a small triggerable lighting show for out halloween party.
 
 One of the goals of the project was to be able to provide a list of scenes that could be described as json and expose a web interface that could be accessed from a mobile phone to trigger the scenes defined in JSON.
